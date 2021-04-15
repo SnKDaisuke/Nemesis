@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "211016611190",
+    "project_id": "nemesis-3d5ff",
+    "storage_bucket": "nemesis-3d5ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211016611190:android:9f949284a89630ae103657",
+        "android_client_info": {
+          "package_name": "com.example.nemesis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211016611190-ggn2e66eh6p93s6prp85ecbmleirbmai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-8DKBb3jB-nmV5UBSWaUUC85HWNuS8Fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211016611190-ggn2e66eh6p93s6prp85ecbmleirbmai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
