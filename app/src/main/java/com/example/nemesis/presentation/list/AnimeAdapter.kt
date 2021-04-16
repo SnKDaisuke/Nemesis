@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nemesis.R
 
-class MangaAdapter(private var dataSet: List<Manga>) :
-    RecyclerView.Adapter<MangaAdapter.ViewHolder>() {
+class AnimeAdapter(private var dataSet: List<Anime>, var listener: ((Anime) -> Unit)? = null) : RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
+
 
     /**
      * Provide a reference to the type of views that you are using
@@ -20,10 +20,11 @@ class MangaAdapter(private var dataSet: List<Manga>) :
         init {
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.manga_name)
+
         }
     }
 
-    fun UpdateList(list: List<Manga>){
+    fun UpdateList(list: List<Anime>){
 
         dataSet = list
         notifyDataSetChanged() //Notifie comme quoi la liste a été changée
@@ -33,7 +34,7 @@ class MangaAdapter(private var dataSet: List<Manga>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.manga_item, viewGroup, false)
+            .inflate(R.layout.anime_item, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -43,9 +44,12 @@ class MangaAdapter(private var dataSet: List<Manga>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val manga = dataSet[position
+        val anime = dataSet[position
         ]
-        viewHolder.textView.text = manga.title
+        viewHolder.textView.text = anime.title
+        viewHolder.itemView.setOnClickListener {
+            listener?.invoke(anime)
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

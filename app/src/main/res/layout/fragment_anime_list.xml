@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.list.MangaListFragment">
+    tools:context=".presentation.list.AnimeListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/manga_recyclerview"
+        android:id="@+id/anime_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
