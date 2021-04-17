@@ -52,7 +52,7 @@ class AnimeDetailsFragment : Fragment() {
                 response: Response<AnimeDetailsResponse>
             ) {
                 if(response.isSuccessful && response.body() != null) {
-                    
+
                     textName.text = response.body()!!.synopsis
                 }
             }

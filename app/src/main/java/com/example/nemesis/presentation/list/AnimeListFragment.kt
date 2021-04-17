@@ -12,12 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nemesis.R
 import com.example.nemesis.presentation.Singletons.Singletons
 import com.example.nemesis.presentation.api.AnimeLaterResponse
-import com.example.nemesis.presentation.api.JikanApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 /**
@@ -49,7 +46,12 @@ class AnimeListFragment : Fragment() {
             adapter = this@AnimeListFragment.adapter
         }
 
-        Singletons.jikanApi.getAnimeSeasonLater().enqueue(object: Callback<AnimeLaterResponse>{
+        callAnimeListApi()
+
+    }
+
+    private fun callAnimeListApi() {
+        Singletons.jikanApi.getAnimeSeasonLater().enqueue(object : Callback<AnimeLaterResponse> {
             override fun onFailure(call: Call<AnimeLaterResponse>, t: Throwable) {
                 TODO("Not yet implemented")
             }
@@ -58,15 +60,15 @@ class AnimeListFragment : Fragment() {
                 call: Call<AnimeLaterResponse>,
                 response: Response<AnimeLaterResponse>
             ) {
-                if(response.isSuccessful && response.body() != null){
+                if (response.isSuccessful && response.body() != null) {
                     val animeLaterResponse: AnimeLaterResponse = response.body()!!
                     adapter.UpdateList(animeLaterResponse.anime)
                 }
             }
 
         })
-
     }
+
     private fun onClickedAnime(anime: Anime) {
         findNavController().navigate(R.id.action_AnimeList_to_AnimeDetails, bundleOf("anime_id" to anime.mal_id))
     }
