@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nemesis.R
 
-class AnimeAdapter(private var dataSet: List<Anime>, var listener: ((Anime) -> Unit)? = null) : RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
+class AnimeAdapter(private var dataSet: List<Anime>, private var listener: ((Anime) -> Unit)? = null) : RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
 
 
     /**
@@ -19,7 +19,7 @@ class AnimeAdapter(private var dataSet: List<Anime>, var listener: ((Anime) -> U
 
         init {
             // Define click listener for the ViewHolder's View.
-            textView = view.findViewById(R.id.manga_name)
+            textView = view.findViewById(R.id.anime_name)
 
         }
     }

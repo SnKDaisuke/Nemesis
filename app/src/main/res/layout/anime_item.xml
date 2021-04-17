@@ -7,7 +7,7 @@
     android:layout_height="50dp">
 
     <TextView
-        android:id="@+id/manga_name"
+        android:id="@+id/anime_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Attack on titan"

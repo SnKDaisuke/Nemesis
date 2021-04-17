@@ -17,9 +17,13 @@
     </fragment>
     <fragment
         android:id="@+id/AnimeDetails"
-        android:name="com.example.nemesis.SecondFragment"
+        android:name="com.example.nemesis.presentation.details.AnimeDetailsFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_anime_detail">
+        <argument
+            android:name="anime_id"
+            app:argType="integer"
+            android:defaultValue="0"/>
 
         <action
             android:id="@+id/action_AnimeDetails_to_AnimeList"

@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nemesis.R
+import com.example.nemesis.presentation.Singletons.Singletons
 import com.example.nemesis.presentation.api.AnimeLaterResponse
 import com.example.nemesis.presentation.api.JikanApi
 import retrofit2.Call
@@ -25,9 +27,9 @@ class AnimeListFragment : Fragment() {
 
     private lateinit var recycler: RecyclerView
 
-    private val adapter = AnimeAdapter(listOf(), ::OnClickedAnime)
+    private val adapter = AnimeAdapter(listOf(), ::onClickedAnime)
 
-    private val layoutManager = LinearLayoutManager(context)
+    //private val layoutManager = LinearLayoutManager(context) // créer un bug lors de l'appui de la touche retour en arrière
 
         override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -43,18 +45,11 @@ class AnimeListFragment : Fragment() {
         recycler = view.findViewById(R.id.anime_recyclerview)
 
         recycler.apply {
-            layoutManager = this@AnimeListFragment.layoutManager
+            layoutManager = LinearLayoutManager(context)
             adapter = this@AnimeListFragment.adapter
         }
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.jikan.moe/v3/season/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val jikanApi: JikanApi = retrofit.create(JikanApi::class.java)
-
-        jikanApi.getAnimeSeasonLater().enqueue(object: Callback<AnimeLaterResponse>{
+        Singletons.jikanApi.getAnimeSeasonLater().enqueue(object: Callback<AnimeLaterResponse>{
             override fun onFailure(call: Call<AnimeLaterResponse>, t: Throwable) {
                 TODO("Not yet implemented")
             }
@@ -71,15 +66,8 @@ class AnimeListFragment : Fragment() {
 
         })
 
-        val mangalist = arrayListOf<Anime>().apply {
-            add(Anime(1,"","Attack on Titan","","","","",0,"",8.1))
-            //add(Anime("Sword art Online"))
-            //add(Anime("Oregairu"))
-            //add(Anime("UwU"))
-        }
-        adapter.UpdateList(mangalist)
     }
-    private fun OnClickedAnime(anime: Anime) {
-        findNavController().navigate(R.id.action_AnimeList_to_AnimeDetails)
+    private fun onClickedAnime(anime: Anime) {
+        findNavController().navigate(R.id.action_AnimeList_to_AnimeDetails, bundleOf("anime_id" to anime.mal_id))
     }
 }
