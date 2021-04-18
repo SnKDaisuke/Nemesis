@@ -3,9 +3,11 @@ package com.example.nemesis.presentation.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nemesis.R
+import com.squareup.picasso.Picasso
 
 class AnimeAdapter(private var dataSet: List<Anime>, private var listener: ((Anime) -> Unit)? = null) : RecyclerView.Adapter<AnimeAdapter.ViewHolder>() {
 
@@ -16,10 +18,12 @@ class AnimeAdapter(private var dataSet: List<Anime>, private var listener: ((Ani
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
+        val imageView: ImageView
 
         init {
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.anime_name)
+            imageView = view.findViewById(R.id.anime_font)
 
         }
     }
@@ -47,6 +51,7 @@ class AnimeAdapter(private var dataSet: List<Anime>, private var listener: ((Ani
         val anime = dataSet[position
         ]
         viewHolder.textView.text = anime.title
+        Picasso.get().load(anime.image_url).into(viewHolder.imageView);
         viewHolder.itemView.setOnClickListener {
             listener?.invoke(anime)
         }
