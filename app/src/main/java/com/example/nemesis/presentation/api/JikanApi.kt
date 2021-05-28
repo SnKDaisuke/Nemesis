@@ -1,5 +1,7 @@
 package com.example.nemesis.presentation.api
 
+import com.example.nemesis.presentation.Singletons.Singletons
+import com.example.nemesis.presentation.choice.SeasonChoiceAnimeFragment
 import retrofit2.Call
 
 import retrofit2.http.GET
@@ -17,4 +19,7 @@ interface JikanApi {
     @GET("season/later")
     fun getAnimeUpcomming(): Call<AnimeResponse>
 
+    @GET("season/{year}/{season}")
+    fun getAnimeCustom(@Path("year") year: String, @Path("season") season: String): Call<AnimeResponse>
 }
+

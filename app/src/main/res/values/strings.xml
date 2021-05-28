@@ -11,6 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="fragment_anime_list">fragment_anime</string>
     <string name="fragment_season_choice">fragment_season_choice</string>
+    <string name="fragment_custom_list" />
 
     <string-array name="Years">
         <item>1957</item>

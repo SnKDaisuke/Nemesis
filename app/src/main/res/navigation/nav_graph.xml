@@ -18,6 +18,10 @@
         <action
             android:id="@+id/action_fragment_season_choice_to_fragment_anime_list_up"
             app:destination="@id/fragment_anime_list_up" />
+
+        <action
+            android:id="@+id/action_fragment_season_choice_to_fragment_custom_anime_list"
+            app:destination="@id/fragment_custom_anime_list" />
     </fragment>
     <fragment
         android:id="@+id/fragment_anime_list_now"
@@ -49,6 +53,22 @@
             app:destination="@id/fragment_anime_list_up" />
         <action
             android:id="@+id/action_fragment_anime_list_to_fragment_season_choice"
+            app:destination="@id/fragment_season_choice" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_custom_anime_list"
+        android:name="com.example.nemesis.presentation.list.CustomAnimeListFragment"
+        android:label="@string/fragment_custom_list"
+        tools:layout="@layout/fragment_custom_anime_list">
+
+        <action
+            android:id="@+id/action_CustomAnimeList_to_AnimeDetails"
+            app:destination="@id/AnimeDetails" />
+        <action
+            android:id="@+id/action_fragment_custom_anime_list_self"
+            app:destination="@id/fragment_custom_anime_list" />
+        <action
+            android:id="@+id/action_fragment_custom_anime_list_to_fragment_season_choice"
             app:destination="@id/fragment_season_choice" />
     </fragment>
     <fragment

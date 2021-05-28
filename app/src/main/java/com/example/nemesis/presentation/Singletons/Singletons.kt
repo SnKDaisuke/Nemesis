@@ -12,7 +12,8 @@ class Singletons {
                 .build()
                 .create(JikanApi::class.java)
 
-
+        var y: String = ""
+        var s: String = ""
     }
 }
 
