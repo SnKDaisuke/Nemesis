@@ -3,17 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_anime_list">
+    app:startDestination="@id/fragment_season_choice">
 
     <fragment
-        android:id="@+id/fragment_anime_list"
-        android:name="com.example.nemesis.presentation.list.AnimeListFragment"
+        android:id="@+id/fragment_season_choice"
+        android:name="com.example.nemesis.presentation.choice.SeasonChoiceAnimeFragment"
+        android:label="@string/fragment_season_choice"
+        tools:layout="@layout/fragment_season_choice_anime">
+
+        <action
+            android:id="@+id/action_fragment_season_choice_to_fragment_anime_list_now"
+            app:destination="@id/fragment_anime_list_now" />
+
+        <action
+            android:id="@+id/action_fragment_season_choice_to_fragment_anime_list_up"
+            app:destination="@id/fragment_anime_list_up" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_anime_list_now"
+        android:name="com.example.nemesis.presentation.list.AnimeListNowFragment"
         android:label="@string/fragment_anime_list"
-        tools:layout="@layout/fragment_anime_list">
+        tools:layout="@layout/fragment_anime_list_now">
 
         <action
             android:id="@+id/action_AnimeList_to_AnimeDetails"
             app:destination="@id/AnimeDetails" />
+        <action
+            android:id="@+id/action_fragment_anime_list_self"
+            app:destination="@id/fragment_anime_list_now" />
+        <action
+            android:id="@+id/action_fragment_anime_list_to_fragment_season_choice"
+            app:destination="@id/fragment_season_choice" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_anime_list_up"
+        android:name="com.example.nemesis.presentation.list.AnimeListUpcommingFragment"
+        android:label="@string/fragment_anime_list"
+        tools:layout="@layout/fragment_anime_list_now">
+
+        <action
+            android:id="@+id/action_AnimeList_to_AnimeDetails"
+            app:destination="@id/AnimeDetails" />
+        <action
+            android:id="@+id/action_fragment_anime_list_self"
+            app:destination="@id/fragment_anime_list_up" />
+        <action
+            android:id="@+id/action_fragment_anime_list_to_fragment_season_choice"
+            app:destination="@id/fragment_season_choice" />
     </fragment>
     <fragment
         android:id="@+id/AnimeDetails"
@@ -26,7 +62,10 @@
             android:defaultValue="0"/>
 
         <action
-            android:id="@+id/action_AnimeDetails_to_AnimeList"
-            app:destination="@id/fragment_anime_list" />
+            android:id="@+id/action_AnimeDetails_to_AnimeList_Next"
+            app:destination="@id/fragment_anime_list_now" />
+        <action
+            android:id="@+id/action_AnimeDetails_to_AnimeList_Up"
+            app:destination="@id/fragment_anime_list_up" />
     </fragment>
 </navigation>

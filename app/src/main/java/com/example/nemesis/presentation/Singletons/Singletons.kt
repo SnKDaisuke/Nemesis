@@ -13,7 +13,6 @@ class Singletons {
                 .create(JikanApi::class.java)
 
 
-
     }
 }
 

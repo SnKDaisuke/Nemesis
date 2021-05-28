@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nemesis.R
 import com.example.nemesis.presentation.Singletons.Singletons
-import com.example.nemesis.presentation.api.AnimeLaterResponse
+import com.example.nemesis.presentation.api.AnimeResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,7 +20,7 @@ import retrofit2.Response
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class AnimeListFragment : Fragment() {
+class AnimeListNowFragment : Fragment() {
 
     private lateinit var recycler: RecyclerView
 
@@ -33,17 +33,17 @@ class AnimeListFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_anime_list, container, false)
+        return inflater.inflate(R.layout.fragment_anime_list_now, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recycler = view.findViewById(R.id.anime_recyclerview)
+        recycler = view.findViewById(R.id.anime_next_recyclerview)
 
         recycler.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = this@AnimeListFragment.adapter
+            adapter = this@AnimeListNowFragment.adapter
         }
 
         callAnimeListApi()
@@ -51,18 +51,18 @@ class AnimeListFragment : Fragment() {
     }
 
     private fun callAnimeListApi() {
-        Singletons.jikanApi.getAnimeSeasonLater().enqueue(object : Callback<AnimeLaterResponse> {
-            override fun onFailure(call: Call<AnimeLaterResponse>, t: Throwable) {
+        Singletons.jikanApi.getAnimeSeasonNow().enqueue(object : Callback<AnimeResponse> {
+            override fun onFailure(call: Call<AnimeResponse>, t: Throwable) {
                 TODO("Not yet implemented")
             }
 
             override fun onResponse(
-                call: Call<AnimeLaterResponse>,
-                response: Response<AnimeLaterResponse>
+                call: Call<AnimeResponse>,
+                response: Response<AnimeResponse>
             ) {
                 if (response.isSuccessful && response.body() != null) {
-                    val animeLaterResponse: AnimeLaterResponse = response.body()!!
-                    adapter.UpdateList(animeLaterResponse.anime)
+                    val animeResponse: AnimeResponse = response.body()!!
+                    adapter.UpdateList(animeResponse.anime)
                 }
             }
 
