@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "211016611190",
+    "firebase_url": "https://nemesis-3d5ff-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "nemesis-3d5ff",
     "storage_bucket": "nemesis-3d5ff.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "211016611190-glepa7hus4q7h66nhpicmeklood16tt0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nemesis",
+            "certificate_hash": "de69912cd47d1f1b2039fd416617515114704672"
+          }
+        },
         {
           "client_id": "211016611190-ggn2e66eh6p93s6prp85ecbmleirbmai.apps.googleusercontent.com",
           "client_type": 3
