@@ -12,6 +12,7 @@
     <string name="fragment_anime_list">fragment_anime</string>
     <string name="fragment_season_choice">fragment_season_choice</string>
     <string name="fragment_custom_list" />
+    <string name="fragment_watchlist" />
 
     <string-array name="Years">
         <item>1957</item>

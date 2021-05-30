@@ -22,22 +22,26 @@
         <action
             android:id="@+id/action_fragment_season_choice_to_fragment_custom_anime_list"
             app:destination="@id/fragment_custom_anime_list" />
-    </fragment>
-    <fragment
-        android:id="@+id/fragment_anime_list_now"
-        android:name="com.example.nemesis.presentation.list.AnimeListNowFragment"
-        android:label="@string/fragment_anime_list"
-        tools:layout="@layout/fragment_anime_list_now">
 
         <action
-            android:id="@+id/action_AnimeList_to_AnimeDetails"
-            app:destination="@id/AnimeDetails" />
-        <action
-            android:id="@+id/action_fragment_anime_list_self"
-            app:destination="@id/fragment_anime_list_now" />
-        <action
-            android:id="@+id/action_fragment_anime_list_to_fragment_season_choice"
-            app:destination="@id/fragment_season_choice" />
+            android:id="@+id/action_fragment_season_choice_to_fragment_watchlist"
+            app:destination="@id/fragment_watchlist" />
+    </fragment>
+    <fragment
+    android:id="@+id/fragment_anime_list_now"
+    android:name="com.example.nemesis.presentation.list.AnimeListNowFragment"
+    android:label="@string/fragment_anime_list"
+    tools:layout="@layout/fragment_anime_list_now">
+
+    <action
+        android:id="@+id/action_AnimeList_to_AnimeDetails"
+        app:destination="@id/AnimeDetails" />
+    <action
+        android:id="@+id/action_fragment_anime_list_self"
+        app:destination="@id/fragment_anime_list_now" />
+    <action
+        android:id="@+id/action_fragment_anime_list_to_fragment_season_choice"
+        app:destination="@id/fragment_season_choice" />
     </fragment>
     <fragment
         android:id="@+id/fragment_anime_list_up"
@@ -70,6 +74,22 @@
         <action
             android:id="@+id/action_fragment_custom_anime_list_to_fragment_season_choice"
             app:destination="@id/fragment_season_choice" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_watchlist"
+        android:name="com.example.nemesis.presentation.list.FragmentWatchlistAnime"
+        android:label="@string/fragment_watchlist"
+        tools:layout="@layout/fragment_watchlist_anime">
+
+    <action
+        android:id="@+id/action_Watchlist_to_AnimeDetails"
+        app:destination="@id/AnimeDetails" />
+    <action
+        android:id="@+id/action_fragment_Watchlist_self"
+        app:destination="@id/fragment_watchlist" />
+    <action
+        android:id="@+id/action_fragment_watchlist_to_fragment_season_choice"
+        app:destination="@id/fragment_season_choice" />
     </fragment>
     <fragment
         android:id="@+id/AnimeDetails"

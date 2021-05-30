@@ -88,7 +88,7 @@ class SeasonChoiceAnimeFragment : Fragment(){
         }
 
         watchlist_btn.setOnClickListener {
-            findNavController().navigate(R.id.action_fragment_season_choice_to_fragment_custom_anime_list)
+            findNavController().navigate(R.id.action_fragment_season_choice_to_fragment_watchlist)
 
         }
 
