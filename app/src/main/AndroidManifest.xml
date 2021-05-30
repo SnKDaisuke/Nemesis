@@ -23,7 +23,7 @@
             tools:ignore="LockedOrientationActivity">
         </activity>
         <activity android:name=".Login"
-            android:icon="@drawable/app_icon"
+            android:icon="@mipmap/icon"
             android:label="Némésis"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
